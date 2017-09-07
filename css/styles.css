@@ -6,6 +6,12 @@ body{
 header, main, nav, footer {
     text-align: center;
 }
+
+#head1{
+
+    float: middle;
+}
+
 a{
     padding: 10px 50px;
     margin:0px 60px;
@@ -17,21 +23,7 @@ nav a{
     text-decoration: none;
     color: white;
     
-    
-    /*li
-{
-    display: inline;
-    color: white;
-    padding: 10px 50px;
-    margin:0px 60px;
-}
-ul
-{
-    background:blue;
-    height: 20px 0px;
-    padding: 10px 20px;
-}
-*/
+
 }
 
 nav a:hover {
@@ -54,6 +46,7 @@ nav a:hover {
     text-align: middle;
     vertical-align: middle;
 }
+
 
 footer{
     clear: right;
@@ -90,7 +83,6 @@ ul {
 }
 
 h1 {
-    /*font-family:'Pacifico', cursive;*/
     font-size: 4em;
     margin-bottom: 0px;
 }
