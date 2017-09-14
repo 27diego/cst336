@@ -1,0 +1,88 @@
+body{
+    background-color: blue;
+    color:white;
+}
+
+header, main, nav, footer {
+    text-align: center;
+}
+
+#head1{
+
+    float: middle;
+}
+
+a{
+    padding: 10px 50px;
+    margin:0px 60px;
+}
+nav a{
+    padding:15px;
+    padding-bottom: 4px;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: white;
+    
+
+}
+
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition: .9s; 
+}
+
+#me, #welcomeText{
+    float:right;
+    text-align: left;
+    vertical-align: middle;
+}
+.container img {
+    width: 70%;
+    height: auto;
+}
+#aboutText{
+    float:middle;
+    text-align: middle;
+    vertical-align: middle;
+}
+
+
+footer{
+    clear: right;
+}
+
+table{
+    margin: 0px auto;
+}
+
+td {
+    padding-right: 10px;
+    font-size: 1.3em;
+}
+
+td strong{
+    color: orange;
+}
+
+#table-header{
+    background-color: #753900;
+}
+
+.table-row {
+    background-color: #753900; 
+}
+
+ul {
+    text-align: right;
+    padding-left: 200px;
+}
+
+.hobby{
+    color: yellow;
+}
+
+h1 {
+    font-size: 4em;
+    margin-bottom: 0px;
+}
