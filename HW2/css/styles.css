@@ -1,0 +1,31 @@
+body
+{
+    background-color: black;
+    color:white;
+}
+h1 {
+    font-size: 4em;
+    margin-bottom: 0px;
+    text-align: center;
+}
+h2{
+    font-size: 2em;
+    margin-bottom: 0px;
+    text-align: center;
+}
+#welcomeText
+{
+     display: block;
+   text-align: center;
+}
+ img {
+        border-radius:20px;
+    }
+    
+#date {
+        font-family: 'Baloo Bhaina';
+        width:60px;
+        height:50px;
+        position:static;
+        margin:0 auto;
+}
