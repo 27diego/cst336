@@ -46,6 +46,9 @@ function loginProcess() {
 <html>
     <head>
         <title> Admin Login  </title>
+        <style>
+        @import url("css/styles.css");
+        </style>
     </head>
     <body>
 
@@ -53,10 +56,13 @@ function loginProcess() {
             <h1> Admin Login </h1>
             
             <form method="post">
-                
+                <div id="usernameField">
                 Username: <input type="text" name="username"/> <br />
+                </div>
                 
+                <div id="passwordField">
                 Password: <input type="password" name="password" /> <br />
+                </div>
                 
                 <input type="submit" name="loginForm" value="Login!"/>
                 

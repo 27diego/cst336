@@ -33,6 +33,10 @@ function userList(){
     <head>
         <title>Admin Main Page </title>
         
+        <style>
+        @import url("css/styles.css");
+        </style>
+        
         <script>
             function confirmDelete()
             {
@@ -48,6 +52,8 @@ function userList(){
             <h1> Admin Main </h1>
             <h2> Welcome <?=$_SESSION['adminName']?>!</h2>
             
+            
+            <div id="adduserButtons">
             <form action="addUser.php">
                 
                 <input type="submit" value="Add new user" />
@@ -60,6 +66,7 @@ function userList(){
                 <input type="submit" value="Log out" />
                 
             </form>
+            </div>
             
             <?php
             
