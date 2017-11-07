@@ -84,6 +84,9 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
 <html>
     <head>
         <title>Admin: Add new user</title>
+        <style>
+        @import url("css/styles.css");
+        </style>
     </head>
     <body>
 

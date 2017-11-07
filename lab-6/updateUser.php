@@ -77,6 +77,9 @@ if(isset($_GET['userId']))
 <head>
     
     <title>Update</title>
+    <style>
+        @import url("css/styles.css");
+        </style>
     
 </head>
 <body>
