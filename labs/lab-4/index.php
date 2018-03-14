@@ -98,7 +98,6 @@
               <option <?=checkCategory('Sky')?>>  Sky </option>
             </select>
             
-            
             <input type="submit" value="Submit!"/>
                     
         </form>

@@ -1,0 +1,52 @@
+body{
+        width:100%;
+        text-align:center;
+        padding-top: 35;
+        color: white;
+    }
+    nav a{
+    padding:15px;
+    padding-bottom: 4px;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: yellow;
+}
+
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition: .9s; 
+}
+
+#specialTakamine
+{
+    color: yellow;
+    text-decoration: underline;
+}
+h2{
+    color:red;
+}
+
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    border-radius: 100px;
+}
+
+input[type=text]{
+    border-color:#333;
+}
+
+input[type=submit] {
+    padding:20px 110px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    border-radius: 100px; 
+}
+
+#finishorder
+{
+    color:white;
+    font-size: 200%;
+}
