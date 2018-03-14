@@ -20,7 +20,7 @@
             <p>Our private lessons are sold in 1/2-hour increments. 
             The cost is $40* for each 1/2-hour ticket or $140 for four 1/2-hour 
             tickets. Tickets should be purchased ahead of time, and then handed 
-            to your teacher at the beginning of each lesson. McCabe's lesson tickets 
+            to your teacher at the beginning of each lesson. Our lesson tickets 
             are valid for six months. All scheduling is done directly with each teacher. 
             Contact info can be found on this page, or by calling the shop. There is a 
             strict 24-hour cancellation policy. If you cancel a lesson less than 24 hours 

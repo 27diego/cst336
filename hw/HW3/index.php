@@ -60,7 +60,7 @@
             <div id = "repairs">
                 <p>Got a crack in your axe? If your guitar has suffered an injury, 
                 if it’s buzzing, or hard to play, or even if it won’t make any 
-                sound at all, we can probably help. McCabe’s has a team of veteran 
+                sound at all, we can probably help. We have a team of veteran 
                 luthiers who know what they’re doing. Restrings, new gears, pickup 
                 installation, troubleshooting – “No job too weird or too small” is 
                 what our repair shop motto would be, if we had a repair shop motto. 
@@ -75,7 +75,7 @@
                 directly for scheduling or info. If you’re feeling more social, or you 
                 just want more bang for your buck, have look at the group classes we’re 
                 currently offering. And if you don’t find the class you’re looking for, 
-                suggest it, and we’ll see what we can do. McCabe’s is here to help!</p>
+                suggest it, and we’ll see what we can do. We are here to help!</p>
             </div>
             
             
