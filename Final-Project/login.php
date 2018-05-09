@@ -10,7 +10,7 @@ function loginProcess() {
             $password = $_POST['password'];
             
             $sql = "SELECT *
-                    FROM Admin
+                    FROM admin
                     WHERE username = :username 
                     AND   password = :password ";
             
@@ -79,3 +79,5 @@ function loginProcess() {
             <?=loginProcess()?>
     </body>
 </html>
+
+

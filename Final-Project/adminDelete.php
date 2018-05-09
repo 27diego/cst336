@@ -3,12 +3,11 @@
     include 'database.php';
     $conn = getDatabaseConnection();
     
-    $sql = "DELETE FROM Songs
-            WHERE id = " .$_GET['userId'];
+    $sql = "DELETE FROM admin
+            WHERE adminId = " .$_GET['adminId'];
             
             $stmt = $conn -> prepare($sql);
             $stmt->execute();
             
             header("Location: adminPage.php");
-
 ?>

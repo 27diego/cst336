@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>   
+        <style>
+                body{
+            
+            color: white;
+            background-color: #000000;
+            text-align:center;
+        }
+        div{
+            background-color: white;
+            text-align: center;
+            width: 300px;
+            border-style: solid;
+            border-width: 5px;
+            border-radius: 25px;
+            margin: 0 auto;
+            color: black;
+            font-size: 1em;
+        }
+        h1{
+            font-size: 400%;
+        }
+        </style>
+        <meta charset="UTF-8">
+        <title>AJAX: Sign Up Page</title>
+
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script>
+        
+            // function validateForm() {
+                
+            //     return false;
+            // }
+            
+        </script>
+        
+        <script>
+            $(document).ready( function(){
+                
+                //EVENTS
+                
+                $("#username").change( function(){ 
+                    //alert( $("#username").val() )
+                    
+                    $.ajax({
+                        type: "GET",
+                        url: "checkUserNameApi.php",
+                        dataType: "json",
+                        data: { "username": $("#username").val() },
+                        success: function(data,status) {
+                             //alert(data);
+                             
+                             if(!data)
+                              {
+                                  $("#user").html("Username does not exist").css("color","red");
+                              }
+                              else
+                              {
+                                  $("#user").html("Username exists").css("color","green");
+                                //   localStorage.setItem(key, data);
+                                  
+                                  $("#firstPass").change(function(){window.location.href = "catalog.php";})
+                              }
+                             
+                        
+                        },
+                        complete: function(data,status) { //optional, used for debugging purposes
+                        //alert(status);
+                    }
+            });//ajax
+                    
+                });
+                
+            } ); //documentReady
+            
+        </script>
+        
+    </head>
+
+    <body>
+    
+       <h1> Sign In </h1>
+    
+        <form onsubmit="return validateForm()">
+            <fieldset>
+               <legend>Sign in</legend>
+                Desired Username: <input id="username" type="text">
+                <span id="user">
+                    
+                </span>
+                <br/>
+                
+                Password: <input type="password" id="firstPass">
+                <span id="passwordCheck">
+                
+                </span>
+                <br/>
+                
+                <!--<input type="submit" name="submit" class="btn btn-danger" value="Sign in!">-->
+                <!--<button type="submit" class="btn btn-danger" >Sign up!</button>-->
+            </fieldset>
+            
+        </form>
+    
+    </body>
+</html>

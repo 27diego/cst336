@@ -2,11 +2,11 @@
 include 'database.php';
 $conn = getDatabaseConnection();
 
-    function songList(){
+    function productList(){
       
         global $conn;
         
-        $sql = "SELECT * FROM Songs ORDER BY name";
+        $sql = "SELECT * FROM product";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -15,24 +15,23 @@ $conn = getDatabaseConnection();
     }
 
 
-if (isset($_GET['addSong'])) {  //the add form has been submitted
+if (isset($_GET['addProduct'])) {  //the add form has been submitted
 
-    $sql = "INSERT INTO Songs
-                (name, artist, genre, album, typeName, price) 
+    $sql = "INSERT INTO product
+                (productName, productDescription, productImage, price, productType) 
             VALUES
-                (:name, :artist, :genre, :album, :typeName, :price)";
+                (:productName, :productDescription, :productImage, :price, :productType)";
     $np = array();
-    $np[':name'] = $_GET['name'];
-    $np[':artist'] = $_GET['artist'];
-    $np[':genre'] = $_GET['genre'];
-    $np[':album'] = $_GET['album'];
-    $np[':typeName'] = $_GET['typeName'];
+    $np[':productName'] = $_GET['productName'];
+    $np[':productDescription'] = $_GET['productDescription'];
+    $np[':productImage'] = $_GET['productImage'];
     $np[':price'] = $_GET['price'];
-    
+    $np[':productType'] = $_GET['productType'];
+
     $stmt=$conn->prepare($sql);
     $stmt->execute($np);
     
-    echo "Song was added!";
+    echo "Product was added!";
 }
 
 
@@ -45,6 +44,7 @@ if (isset($_GET['addSong'])) {  //the add form has been submitted
 <html>
     <head>
         <title>Admin: Add new song</title>
+        <h2>DOES NOT INSERT</h2>
         <style>
             body {
                 text-align: center;
@@ -63,42 +63,41 @@ if (isset($_GET['addSong'])) {  //the add form has been submitted
 
 
        <h1> Adding New Song </h1>
-        
+       
+
         <form method="GET">
-            Song Name:<input type="text" name="name" />
+            Product Name:<input type="text" name="productName" />
             <br />
-            Artist's Name:<input type="text" name="artist"/>
+            Product Description:<input type="text" name="productDescription"/>
             <br/>
-            Genre: <input type= "text" name ="genre"/>
-            <br/>
-            Album: <input type= "text" name ="album"/>
-            <br/>
-            Type: <input type= "text" name ="typeName"/>
+            Product Image: <input type= "text" name ="productImage"/>
             <br/>
             Price: <input type= "number" name ="price" step="0.01"/>
+            <br/>
+            Product Type: <input type= "texth" name ="productType"/>
             <br/>
                 
                 
             </select>
-            <input type="submit" value="Add Song" name="addSong">
+            <input type="submit" value="add Product" name="addProduct">
+            </form>
             
              <br/> <br/>
             
-            Songs In Catalog:
+            Products In Catalog:
             
              <br/>
             
             <?php
                 
-                $departments = songList();
+                $departments = productList();
                 
                 foreach($departments as $department) {
-                   echo "<option value='".$department['id']."'> " . $department['name']  . "</option>";  
+                   echo "<option value='".$department['productId']."'> " . $department['productName']  . "</option>";  
                 }
                 
-                
                 ?>
-        </form>
+        
 
     </body>
 </html>

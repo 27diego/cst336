@@ -1,14 +1,16 @@
+
 <?php
 session_start();
 
 function displayItems(){
     foreach($_SESSION['shoppingCart'] as $itemss){
         echo "<div>";
-        echo $itemss;
-        echo "</div>";
+        echo $itemss."-";
         echo "<br>";
+        echo "</div>";
+    
     }
-   
+    
 }
 if(isset($_GET['Checkout'])){
         $_SESSION['shoppingCart'] = array();
@@ -16,6 +18,8 @@ if(isset($_GET['Checkout'])){
 }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +41,7 @@ if(isset($_GET['Checkout'])){
             border-radius: 25px;
             margin: 0 auto;
             color: black;
-            font-size: 3em;
+            font-size: 1em;
         }
         h1{
             font-size: 400%;
@@ -47,11 +51,15 @@ if(isset($_GET['Checkout'])){
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     </head>
     <body>
-            <a href = "main.php" font-family='Lobster','cursive'>BACK</a>
+            <a href = "catalog.php" font-family='cursive'>BACK</a>
             <h1>Checkout Items</h1>
+            <span id="showUser">
+                
+            </span>
             <?=displayItems()?>
         <form method='GET'>
             <input type="submit" name = "Checkout" value ="Checkout">
         </form>
+        <p>Thank you <?php echo $_SESSION['varname']['username']; ?> for shopping with us, we will email you at <?php echo $_SESSION['varname']['email']; ?> when your order has been reserved and ready for pick up.</p>
     </body>
 </html>

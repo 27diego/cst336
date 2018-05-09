@@ -12,13 +12,13 @@ function getUserInfo()
     global $conn;
      
     $sql = "SELECT *
-            FROM User
-            WHERE id = ".$_GET['userId'];;
+            FROM admin
+            WHERE adminId = ".$_GET['adminId'];;
             
             $stmt = $conn->prepare($sql);
             $stmt->execute($namedParameters);
             $record = $stmt->fetch(PDO::FETCH_ASSOC);
-            print_r($record);
+           // print_r($record);
             
             return $record;
     
@@ -38,16 +38,16 @@ if(isset($_GET['updateUser']))
 {
     //echo "Form has been submitted";
     
-    $sql="UPDATE User 
+    $sql="UPDATE admin 
         SET firstName = :fName,
         SET lastName = :lName
-        WHERE id = :userId";
+        WHERE productId = :productId";
         
     $np = array();
         
     $np[':fName'] = $_GET['firstName'];
     $np[':lName'] = $_GET['lastName'];
-    $np[':userId'] = $_GET['id'];
+    $np[':productId'] = $_GET['productId'];
     
     
     $stmt = $conn->prepare($sql);
@@ -55,7 +55,7 @@ if(isset($_GET['updateUser']))
     
     echo "Record has been updated.";
 }
-if(isset($_GET['userId']))
+if(isset($_GET['productId']))
 {
     $userInfo = getUserInfo();
 }
@@ -88,38 +88,23 @@ if(isset($_GET['userId']))
     
       <h1> Tech Checkout System: Updating User's Info </h1>
         <form method="GET">
-             <input type="hidden" name="userId" value="<?=$userInfo['id']?>" />
+             <input type="hidden" name="userId" value="<?=$userInfo['productId']?>" />
             <br />
             First Name:<input type="text" name="firstName" value="<?=$userInfo['firstName']?>" />
             <br />
             Last Name:<input type="text" name="lastName" value="<?=$userInfo['lastName']?>"/>
-            <br/>
-            Email: <input type= "email" name ="email" value="<?=$userInfo['email']?>"/>
-            <br/>
-            Phone Number: <input type ="text" name= "phone" value="<?=$userInfo['phone']?>"/>
             <br />
-           Role: 
-           <select name="role">
-                <option value=""> - Select One - </option>
-               <option value="staff" <?=($userInfo['role']=='Staff')?"":"" ?> >Staff</option>  <!--finish-->
-                <option value="student" <?=($userInfo['role']=='Student')?"":"" ?> >Student</option>
-                <option value="faculty" <?=($userInfo['role']=='Faculty')?"":"" ?> >Faculty</option>
-            </select>
-            <br />
-            Department: 
-            <select name="deptId">
-                <option value="" > Select One </option>
-                
-                <?php
-                
-                $departments = departmentList();
-                
-                foreach($departments as $department) {
-                   echo "<option value='".$department['id']."'> " . $department['name']  . "</option>";  
-                }
-                
-                
-                ?>
+            
+            <?php
+            
+            $departments = departmentList();
+            
+            foreach($departments as $department) {
+               echo "<option value='".$department['productId']."'> " . $department['prouctName']  . "</option>";  
+            }
+            
+            
+            ?>
                 
             </select>
             <input type="submit" value="Update User" name="updateUser">

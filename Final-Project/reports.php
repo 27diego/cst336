@@ -39,23 +39,20 @@
 
 function getAveragePrice($conn) 
 {
-    $sql="SELECT AVG(price)
-    FROM Songs";    
+    $sql="SELECT ROUND(AVG(price))
+    FROM product";    
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     
     $rows = $stmt->fetchAll();
     $keys = array_keys($rows[0]);
     
-    // foreach ($keys as $name) {
-    //     echo $name . " ";
-    // }
-    // echo "<br/>";
+   
     foreach ($rows as $row) {
         foreach($row as $attribute) {
             echo $attribute . " ";
         }
-        echo "<br/>";
+        echo "$ <br/>";
     }
     echo "<br/>";
 }
@@ -63,8 +60,8 @@ function getAveragePrice($conn)
 
 function numberOfAlbums($conn) 
 {
-    $sql="SELECT COUNT(name)
-        FROM Songs;";    
+    $sql="SELECT COUNT(*)
+        FROM product;";    
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     
@@ -86,7 +83,7 @@ function numberOfAlbums($conn)
 
 function totalCost($conn) 
 {
-    $sql="SELECT SUM(price) AS overallSize FROM Songs;";    
+    $sql="SELECT ROUND(SUM(price)) AS overallSize FROM product;";    
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     
@@ -101,7 +98,7 @@ function totalCost($conn)
         foreach($row as $attribute) {
             echo $attribute . " ";
         }
-        echo "<br/>";
+        echo "$<br/>";
     }
     echo "<br/>";
 }
@@ -110,15 +107,14 @@ function totalCost($conn)
 $conn = getDatabaseConnection();
 
 
-echo "Average Price of Songs";
+echo "Average Price of product in stock: ";
 getAveragePrice($conn);
 
-echo "Number of Albums: ";
+echo "Number of products in store: ";
 numberOfAlbums($conn);
 
-echo "Total Cost of vinyls: $";
+echo "Total Cost of inventory: ";
 totalCost($conn);
-
 
 
 ?>

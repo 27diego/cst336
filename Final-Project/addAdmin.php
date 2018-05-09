@@ -6,7 +6,7 @@ $conn = getDatabaseConnection();
       
         global $conn;
         
-        $sql = "SELECT * FROM Admin ORDER BY name";
+        $sql = "SELECT * FROM admin ORDER BY name";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -17,13 +17,13 @@ $conn = getDatabaseConnection();
 
 if (isset($_GET['addAdmin'])) {  //the add form has been submitted
 
-    $sql = "INSERT INTO Admin
-                (fname, lname, username, password) 
+    $sql = "INSERT INTO admin
+                (firstName, lastName, username, password) 
             VALUES
-                (:fname, :lname, :username, :password)";
+                (:firstName, :lastName, :username, :password)";
     $np = array();
-    $np[':fname'] = $_GET['fname'];
-    $np[':lname'] = $_GET['lname'];
+    $np[':firstName'] = $_GET['firstName'];
+    $np[':lastName'] = $_GET['lastName'];
     $np[':username'] = $_GET['username'];
     $np[':password'] = $_GET['password'];
     
@@ -67,9 +67,9 @@ if (isset($_GET['addAdmin'])) {  //the add form has been submitted
 
         
         <form method="GET">
-            First Name:<input type="text" name="fname" />
+            First Name:<input type="text" name="firstName" />
             <br />
-            Last Name:<input type="text" name="lname"/>
+            Last Name:<input type="text" name="lastName"/>
             <br/>
             username: <input type= "text" name ="username"/>
             <br/>
